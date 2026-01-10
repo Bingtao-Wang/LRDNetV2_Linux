@@ -1,0 +1,28 @@
+# datasets
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.csv
+*.zip
+*.tar
+*.tar.gz
+*.hdf5
+*.xml
+
+
+# cache / output
+outputs/
+logs/
+checkpoints/
+wandb/
+results/
+*.log
+README.md
+Overall Purpose.md
+.idea/
+AUG/
+images/
