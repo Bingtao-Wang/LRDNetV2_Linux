@@ -182,3 +182,4 @@ history=rm.model.fit_generator(train_data, steps_per_epoch, epochs=epochs, verbo
                         callbacks=callbacks, validation_data=val_data,
                         validation_steps=validation_steps)
                         
+
