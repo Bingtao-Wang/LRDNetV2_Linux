@@ -1,3 +1,10 @@
+'''
+train.py
+Training script for LRDNet and other models.
+126x384 best = 0.937
+256x256 best = 0.964
+
+'''
 import os
 # 1. 强制使用 Keras 后端 (必须最先设置)
 os.environ["SM_FRAMEWORK"] = "keras"
