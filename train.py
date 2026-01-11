@@ -106,8 +106,6 @@ patience=15
 epochs=1500
 save_models=True
 
-
-
     
 if seeding:
     seedi=100
