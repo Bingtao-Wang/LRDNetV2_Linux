@@ -59,7 +59,6 @@ from keras.optimizers import Adam
 import keras.backend as K
 
 
-
 # Our internal functions and libraries
 from models.models import ResearchModels   # For models
 from utils.data import DataSet  # For loading datasets
