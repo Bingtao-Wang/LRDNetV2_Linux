@@ -103,12 +103,12 @@ class ResearchModels():
     def TransNet(self, img, ADI,filters=1):
         # assert img.shape != ADI.shape, ("Input shape mismatched: Shapes must be same ", img.shape, ADI.shape)
         f=int(ADI.shape[3])
-        theta_a = Conv2D(f, [1, 1], strides=[1, 1], padding='same')(ADI)
-        theta_b = Conv2D(f, [1, 1], strides=[1, 1], padding='same')(ADI)
-        x1=Multiply()([theta_a,ADI])
-        x1=add([x1, theta_b])
-        x2 = Concatenate(axis=3)([x1, img])         
-        return x2
+        theta_a = Conv2D(f, [1, 1])(ADI)     # 1×1卷积生成权重A
+        theta_b = Conv2D(f, [1, 1])(ADI)     # 1×1卷积生成权重B
+        x1 = Multiply()([theta_a, ADI])      # 加权融合
+        x1 = add([x1, theta_b])              # 残差连接
+        x2 = Concatenate()([x1, img])        # 拼接原图
+        return x2                             # 输出融合特征
 
     def fuse(self,a,b,c,d):
         f=int(a.shape[3])
