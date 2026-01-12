@@ -316,10 +316,11 @@ class ResearchModels():
             last_filters = 64
             
         elif 'V3' in self.modelname:  # LRDNet+
-            l1_flt = 64
-            col_2_F = 64
-            col_3_F = 32
-            col_4_F = 16
+            # V3 / LRDNet+ 配置
+            l1_flt = 64        # Level 1 基础通道数
+            col_2_F = 64       # 第2阶段统一通道数
+            col_3_F = 32       # 第3阶段统一通道数
+            col_4_F = 16       # 第4阶段统一通道数 (也就是进入上采样之前的通道数)
             last_filters = 256
 
         activation = 'relu'
@@ -396,7 +397,7 @@ class ResearchModels():
    
         col_2_4 = Conv2D(col_2_F, (3, 3), padding='same', activation=activation)(col_1_4)
         col_2_4=self.TransNet(col_2_4,col_2_4_A)        
-        
+
         upsample = UpSampling2D(interpolation='bilinear')(col_2_4)
         x=self.TransNet(col_1_3,upsample)        
         col_2_3 = Conv2D(col_2_F, (3, 3), padding='same', activation=activation)(x)
