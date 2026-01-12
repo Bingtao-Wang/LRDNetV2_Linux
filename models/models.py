@@ -7,7 +7,6 @@ from keras.models import load_model
 from keras.utils import get_file
 from keras.models import model_from_json
 from keras.models import Sequential
-from keras.models import model_from_json
 import keras        
 import keras.backend as K
 from keras.models import Sequential
@@ -397,12 +396,13 @@ class ResearchModels():
    
         col_2_4 = Conv2D(col_2_F, (3, 3), padding='same', activation=activation)(col_1_4)
         col_2_4=self.TransNet(col_2_4,col_2_4_A)        
+        
         upsample = UpSampling2D(interpolation='bilinear')(col_2_4)
         x=self.TransNet(col_1_3,upsample)        
         col_2_3 = Conv2D(col_2_F, (3, 3), padding='same', activation=activation)(x)
         col_2_3=self.TransNet(col_2_3,col_2_3_A)        
         
-        
+
         upsample = UpSampling2D(interpolation='bilinear')(col_2_3)
         x=self.TransNet(col_1_2,upsample)                
         col_2_2 = Conv2D(col_2_F, (3, 3), padding='same', activation=activation)(x)
