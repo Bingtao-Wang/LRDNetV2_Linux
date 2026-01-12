@@ -96,7 +96,7 @@ def iou_loss(y_true, y_pred):
 
 
 # legend : ADD= add secondary data, DEPTH for depth, ADI2= for our adi
-model='LRDNet_V3'
+model='LRDNet_V3_2'
 augmentation=False
 save_best_only=True
 seeding=False
