@@ -32,7 +32,7 @@ class ResearchModels():
             print("***** Loading LRDNet proposed model*****")
             self.model = self.LRDNet()    
          
-                        
+                   
         if verb==1:
             self.model.summary()
             print('*******Total parameters********',self.model.count_params())
@@ -456,3 +456,4 @@ class ResearchModels():
         metrics=[self.iou_coef]
         model.compile(optimizer=optimizer, loss=self.iou_loss, metrics=metrics)
         return model
+    
